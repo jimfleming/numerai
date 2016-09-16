@@ -1,0 +1,8 @@
+.ipynb_checkpoints/
+.env/
+logs/
+*.pyc
+*.csv
+*.npy
+*.npz
+*.pkl
