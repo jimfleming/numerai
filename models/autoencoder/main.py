@@ -54,11 +54,11 @@ def main(_):
 
     best = None
     wait = 0
-    summary_op = tf.merge_all_summaries()
+    summary_op = tf.summary.merge_all()
     logdir = 'logs/{}'.format(int(time.time()))
     supervisor = tf.train.Supervisor(logdir=logdir, summary_op=None)
     with supervisor.managed_session() as sess:
-        summary_writer = tf.train.SummaryWriter(logdir, graph=sess.graph)
+        summary_writer = tf.summary.FileWriter(logdir, graph=sess.graph)
 
         print('Training model with {} parameters...'.format(train_model.num_parameters))
         with tqdm(total=FLAGS.num_epochs) as pbar:
