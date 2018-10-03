@@ -69,7 +69,7 @@ class Model(object):
 
         reconstruction = tf.contrib.layers.fully_connected(
             inputs=h4,
-            num_outputs=21,
+            num_outputs=45,
             activation_fn=tf.sigmoid,
             weights_initializer=sigmoid_init,
             weights_regularizer=weights_reg,
@@ -91,8 +91,8 @@ class Model(object):
             self.train_step = tf.contrib.layers.optimize_loss(self.total_loss, self.global_step, \
                 learning_rate=self.learning_rate,
                 clip_gradients=1.0,
-                optimizer=optimizer,
-                moving_average_decay=None)
+                optimizer=optimizer)
+                #moving_average_decay=None)
 
     @property
     def num_parameters(self):
